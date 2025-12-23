@@ -1,3 +1,3 @@
-import sum from './sum.js'
+import HexletCode from './components/HexletCode/HexletCode'
 
-console.log(sum(3, 3))
+export default HexletCode
