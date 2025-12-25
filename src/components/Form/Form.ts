@@ -20,11 +20,16 @@ export default class Form {
     this.options = options ?? {}
   }
 
-  toString() {
+  createLabel(name: string) {
+    return new Tag('label', { for: name }, name.charAt(0).toUpperCase() + name.slice(1)).toString()
+  }
+
+  createContent() {
     let content = ''
     Object.entries(this.template).forEach(([key, obj]) => {
       if (this.templateKeys[key]) {
-        let temp
+        let label = this.createLabel(key)
+        let temp = ''
         if (obj.tag === 'textarea') {
           const attributes = { ...obj.attr }
           const value = attributes.value
@@ -38,6 +43,13 @@ export default class Form {
           String(value),
           ).toString()
         }
+        else if (obj.attr.type === 'submit') {
+          label = ''
+          temp = new Tag(obj.tag, {
+            type: 'submit',
+            value: obj.attr.value,
+          }).toString()
+        }
         else {
           temp = new Tag(obj.tag, {
             name: key,
@@ -45,9 +57,15 @@ export default class Form {
             ...obj.attr,
           }).toString()
         }
-        content += temp.toString()
+        content += label + temp
       }
     })
+
+    return content
+  }
+
+  toString() {
+    const content = this.createContent()
     return new Tag('form', { action: this.options.url ?? '#', method: 'post' }, content).toString()
   }
 
@@ -64,5 +82,16 @@ export default class Form {
         this.template[name].attr[key] = value
       }
     })
+  }
+
+  public submit(name?: string) {
+    this.templateKeys.submit = true
+    this.template.submit = {
+      tag: 'input',
+      attr: {
+        type: 'submit',
+        value: name ?? 'Save',
+      },
+    }
   }
 }

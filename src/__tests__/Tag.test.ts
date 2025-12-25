@@ -6,7 +6,7 @@ test('br', () => {
 })
 
 test('img', () => {
-  expect(new Tag('img', { src: 'path/to/image' }).toString()).toBe('<img src="path/to/image">')
+  expect(new Tag('img', { src: 'path/to/image' }).toString()).toBe(`<img src="path/to/image">`)
 })
 
 test('input', () => {
