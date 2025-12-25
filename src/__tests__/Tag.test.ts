@@ -2,15 +2,15 @@ import { expect, test } from 'vitest'
 import Tag from '../components/Tag/Tag'
 
 test('br', () => {
-  expect(new Tag('br').toString()).toBe('<br />')
+  expect(new Tag('br').toString()).toBe('<br>')
 })
 
 test('img', () => {
-  expect(new Tag('img', { src: 'path/to/image' }).toString()).toBe('<img src="path/to/image" />')
+  expect(new Tag('img', { src: 'path/to/image' }).toString()).toBe('<img src="path/to/image">')
 })
 
 test('input', () => {
-  expect(new Tag('input', { type: 'submit', value: 'Save' }).toString()).toBe('<input type="submit" value="Save" />')
+  expect(new Tag('input', { type: 'submit', value: 'Save' }).toString()).toBe('<input type="submit" value="Save">')
 })
 
 test('label', () => {

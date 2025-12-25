@@ -1,9 +1,10 @@
 import Form from '../Form/Form'
-import { TCallback } from '../Form/types'
+import { TCallback, TTemplate } from '../Form/types'
 
 export default class HexletCode {
-  static formFor(template: Record<string, string>, options?: Record<string, string>, callback?: TCallback): string {
-    if (callback) callback()
-    return new Form(template, options).toString()
+  static formFor(template: TTemplate, options?: Record<string, string>, callback?: TCallback<TTemplate>): string {
+    const form = new Form(template, options)
+    if (callback) callback(form)
+    return form.toString()
   }
 }

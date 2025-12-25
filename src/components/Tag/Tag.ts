@@ -1,4 +1,4 @@
-type TParams = Record<string, string>
+import { TOptions } from '../Form/types'
 
 export default class Tag {
   private singleTags: string[] = [
@@ -18,11 +18,11 @@ export default class Tag {
   ]
 
   private name: string
-  private params: TParams
+  private params: TOptions
   private content: string
   private attributes: string
   private isSingleTag: boolean
-  constructor(name: string, params?: TParams, content?: string) {
+  constructor(name: string, params?: TOptions, content?: string) {
     this.name = name
     this.params = params ?? {}
     this.content = content ?? ''
@@ -39,7 +39,7 @@ export default class Tag {
 
   public toString() {
     return this.isSingleTag
-      ? `<${this.name}${this.attributes} />`
+      ? `<${this.name}${this.attributes}>`
       : `<${this.name}${this.attributes}>${this.content}</${this.name}>`
   }
 }
