@@ -59,7 +59,7 @@ test('test7', () => {
 test('test8', () => {
   const form = HexletCode.formFor(template, { method: 'post' }, (f) => {
     f.input('name')
-    f.input('job', { as: 'textarea' })
+    f.input('job')
     f.submit()
   })
 
@@ -69,7 +69,7 @@ test('test8', () => {
 test('test9', () => {
   const form = HexletCode.formFor(template, { method: 'post' }, (f) => {
     f.input('name')
-    f.input('job', { as: 'textarea' })
+    f.input('job')
     f.submit('Wow')
   })
 

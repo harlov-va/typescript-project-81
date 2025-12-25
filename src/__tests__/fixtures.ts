@@ -6,6 +6,6 @@ export const formFixtures = {
   form5: `<form action="#" method="post"><label for="job">Job</label><textarea cols="20" rows="40" name="job">hexlet</textarea></form>`,
   form6: `<form action="#" method="post"><label for="job">Job</label><textarea cols="50" rows="50" name="job">hexlet</textarea></form>`,
   form7: `Field 'age' does not exist in the template.`,
-  form8: `<form action="#" method="post"><label for="name">Name</label><input name="name" type="text" value="rob"><label for="job">Job</label><textarea cols="20" rows="40" name="job">hexlet</textarea><input type="submit" value="Save"></form>`,
-  form9: `<form action="#" method="post"><label for="name">Name</label><input name="name" type="text" value="rob"><label for="job">Job</label><textarea cols="20" rows="40" name="job">hexlet</textarea><input type="submit" value="Wow"></form>`,
+  form8: `<form action="#" method="post"><label for="name">Name</label><input name="name" type="text" value="rob"><label for="job">Job</label><input name="job" type="text" value="hexlet"><input type="submit" value="Save"></form>`,
+  form9: `<form action="#" method="post"><label for="name">Name</label><input name="name" type="text" value="rob"><label for="job">Job</label><input name="job" type="text" value="hexlet"><input type="submit" value="Wow"></form>`,
 }
